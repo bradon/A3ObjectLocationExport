@@ -38,3 +38,5 @@ bigstring = "";
  bigstring=bigstring+endl+_current_complete; 
 } foreach _identified_p3ds; 
 copyToClipboard bigstring;
+
+// Clipboard output will still require curation before being used as objects.mapname.sqf
