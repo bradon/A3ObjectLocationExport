@@ -4,6 +4,7 @@
 // Copy to a text editor eg notepad++
 // delete lines that do not end in "]]]]," - they will be the longest, and they will contain data for clutter
 // write curated file to @ALiVE\indexing\mapname\x\alive\addons\fnc_strategic\indexes\objects.mapname.sqf
+// extra curation eg fixing missing/extra " may be needed
 // Run indexer
  
 //get all houses - might need to divide into sectors for big maps 
