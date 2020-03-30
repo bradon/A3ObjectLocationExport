@@ -1,5 +1,10 @@
-// get enough object information for a playable index 
-// slow! We can speed bits up by pushing processing to an extension 
+// Usage: 
+// Place a playable unit in the center of the map, launch
+// run _0 = [] execVM "ExportToClipboard.sqf"; in the console. This will place object data in clipboard (may take 30 sec to be in clipboard)
+// Copy to a text editor eg notepad++
+// delete lines that do not end in "]]]]," - they will be the longest, and they will contain data for clutter
+// write curated file to @ALiVE\indexing\mapname\x\alive\addons\fnc_strategic\indexes\objects.mapname.sqf
+// Run indexer
  
 //get all houses - might need to divide into sectors for big maps 
 //also may need to get other object types, but houses will get 90% of the way 
@@ -24,7 +29,7 @@ _identified_houses = [] call CBA_fnc_hashCreate;
 } foreach _all_houses; 
  
 _identified_p3ds = [_identified_houses] call CBA_fnc_hashKeys; 
-bigstring = ""; 
+bigstring = "wrp_objects = "+ endl+"["; 
 { 
  _current_p3d = _x; 
  _current_raw = [_identified_houses, _current_p3d] call CBA_fnc_hashGet; 
@@ -37,6 +42,5 @@ bigstring = "";
  //diag_log _current_complete; 
  bigstring=bigstring+endl+_current_complete; 
 } foreach _identified_p3ds; 
+bigstring=bigstring+endl+endl+"// end" + endl;
 copyToClipboard bigstring;
-
-// Clipboard output will still require curation before being used as objects.mapname.sqf
